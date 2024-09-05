@@ -1,3 +1,6 @@
+server:
+  port: 8080  # Puerto en el que se ejecuta el API Gateway
+
 spring:
   cloud:
     gateway:
@@ -6,8 +9,6 @@ spring:
           uri: http://localhost:8081  # URL de tu microservicio de productos
           predicates:
             - Path=/api/productos/**  # Ruta que se debe redirigir
-          filters:
-            - RewritePath=/api/productos/(?<segment>.*), /${segment}
 
   application:
     name: producto-gateway
